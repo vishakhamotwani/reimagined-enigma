@@ -16,6 +16,11 @@ public class NthToLastElement {
 	 */
 	public static Node findNthToLastElement(LinkedList list, int n)
 	{
+		if(list == null || n < 1)
+		{
+			System.out.println("Invalid list or n");
+			return null;
+		} 
 		Node head = list.getHead();
 		Node current = head, runner = head;
 		//**Need to return the node in order to determine if n is
@@ -53,6 +58,10 @@ public class NthToLastElement {
         int n1 = 5;
         Node elem1 = NthToLastElement.findNthToLastElement(list, n1);
         if(elem1 != null)
+        	System.out.println("#"+n1+" to last element is: "+elem1.getData());
+        int n2 = 0;
+        Node elem2 = NthToLastElement.findNthToLastElement(list, n2);
+        if(elem2 != null)
         	System.out.println("#"+n1+" to last element is: "+elem1.getData());
 	}
 

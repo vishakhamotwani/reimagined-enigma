@@ -16,6 +16,10 @@ public class Node
         data = element;
         next = null;
     }
+    
+    public Node ()
+    {
+    }
 
     public Integer getData()
     {

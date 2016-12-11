@@ -16,11 +16,26 @@ public class DeleteGivenNode {
      * only access to that node.
 	 * @param toDelete Node to be deleted
 	 */
-	public static void deleteAGivenNode(Node toDelete) 
+	public static boolean deleteAGivenNode(Node toDelete) 
 	{
+		if(toDelete == null)
+		{
+			return false;
+		}
 		Node temp = toDelete.getNext();
-		toDelete.setData(temp.getData());
-		toDelete.setNext(temp.getNext());
+		if(temp != null)
+		{
+			toDelete.setData(temp.getData());
+			toDelete.setNext(temp.getNext());
+			return true;
+		} 
+		else
+		{
+			System.out.println("Since it is the last node in the linked list, it cannot be deleted.");
+			return false;
+		}
+		
+		
 	}
 	
 	public static void main(String[] args) {
@@ -43,6 +58,10 @@ public class DeleteGivenNode {
         DeleteGivenNode.deleteAGivenNode(b);
         list.display();
         DeleteGivenNode.deleteAGivenNode(list.getHead());
+        list.display();
+        //Deleting the last node
+        Node c = list.getHead().getNext().getNext().getNext();
+        DeleteGivenNode.deleteAGivenNode(c);
         list.display();
 	}
 
