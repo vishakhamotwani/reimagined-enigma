@@ -171,6 +171,26 @@ public class LinkedList {
 		}
 	}
 	
+	public void reverse()
+	{
+		if(head == null)
+		{
+			System.out.println("List is empty!");
+		}
+		else 
+		{
+			Node current = head, prev = null, next = null;
+			while(current != null)
+			{
+				next = current.getNext();
+				current.setNext(prev);
+				prev = current;
+				current = next;
+			}
+			head = prev;
+		}
+	}
+	
 	public static void main(String[] args) {
 		//A new linked list
 		/*LinkedList tempLinkedList = new LinkedList(8);
@@ -181,6 +201,10 @@ public class LinkedList {
         tempLinkedList.display();*/
         LinkedList noHeadList = new LinkedList();
         noHeadList.addMultiple(7, 9, 11, 13, 15, 17);
+        noHeadList.display();
+        //-----Reverse------
+        System.out.println("Reversing the linked list...");
+        noHeadList.reverse();
         noHeadList.display();
         //-----Deletion-----
         /*System.out.println("Deleting 13...");
@@ -193,7 +217,7 @@ public class LinkedList {
         noHeadList.delete(19);
         noHeadList.display();*/
         //-----Update------
-        System.out.println("Updating 7 with 3...");
+        /*System.out.println("Updating 7 with 3...");
         noHeadList.update(7, 3);
         noHeadList.display();
         System.out.println("Updating 13 with 21...");
@@ -204,7 +228,7 @@ public class LinkedList {
         noHeadList.display();
         System.out.println("Updating 19 with 33...");
         noHeadList.update(19, 33);
-        noHeadList.display();
+        noHeadList.display();*/
 	}
 
 }
