@@ -11,6 +11,9 @@ public class LinkedList {
 
 	private Node head;
 	
+	/**
+	 * @return Node head
+	 */
 	public Node getHead() {
 		return head;
 	}
@@ -24,12 +27,17 @@ public class LinkedList {
 		this.head = head;
 	}
 
+	public LinkedList(Integer item)
+    {
+        head = new Node(item);
+    }
+	
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		LinkedList tempLinkedList = new LinkedList(8);
+        System.out.println(tempLinkedList.getHead().getData());
 	}
 
 }
