@@ -1,5 +1,11 @@
+/**
+ * Node class to be used to create linked list nodes
+ */
 package psychic.lamp.linkedlist;
-
+/**
+ * @author vishakha
+ *
+ */
 public class Node
 {
     private Integer data;

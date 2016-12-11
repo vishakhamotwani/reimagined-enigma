@@ -11,24 +11,43 @@ public class LinkedList {
 
 	private Node head;
 	
+	/**
+	 * Returns the head of the linked list
+	 * @return Head of the linked list
+	 */
 	public Node getHead() {
 		return head;
 	}
 
+	/**
+	 * Sets the given node as the head of the linked list
+	 * @param head Node to be made the head of the linked list
+	 */
 	public void setHead(Node head) {
 		this.head = head;
 	}
 
+	/**
+	 * Constructor to create a linked list given a head node
+	 * @param head Node with which to initialize the linked list
+	 */
 	public LinkedList(Node head) {
 		super();
 		this.head = head;
 	}
 
+	/**
+	 * Default constructor that takes no arguments
+	 */
 	public LinkedList()
 	{
 		
 	}
 	
+	/**
+	 * Creates a linked list with the given item as the data of the head
+	 * @param item Integer item to be head of the linked list
+	 */
 	public LinkedList(Integer item)
     {
         head = new Node(item);
@@ -50,7 +69,7 @@ public class LinkedList {
 	
 	/**
 	 * Adds the given data to the list, makes it a head if the list is empty
-	 * @param data
+	 * @param data Data to be added as a node in the linked list
 	 */
 	public void add(Integer data) 
 	{
@@ -84,8 +103,8 @@ public class LinkedList {
 	}
 	
 	/**
-	 * The data to be deleted from the list
-	 * @param data
+	 * Deletes the given element from the list
+	 * @param data The data to be deleted from the list
 	 */
 	public void delete(Integer data)
 	{
@@ -118,17 +137,53 @@ public class LinkedList {
 		}
 	}
 	
+	/**
+	 * Replaces the node with the old value in the linked list with a new value
+	 * @param oldValue Data to be replaced
+	 * @param newValue Updated value
+	 */
+	public void update(Integer oldValue, Integer newValue)
+	{
+		if(head == null)
+		{
+			System.out.println("Cannot replace element, list is empty!");
+		}
+		else if(head.getData() == oldValue)
+		{
+			head.setData(newValue);
+		}
+		else
+		{
+			Node current = head;
+			while(current != null)
+			{
+				if(current.getData() == oldValue)
+				{
+					current.setData(newValue);
+					break;
+				}
+				current = current.getNext();
+			}
+			if(current == null)
+			{
+				System.out.println("Element to be replaced was not found!");
+			}
+		}
+	}
+	
 	public static void main(String[] args) {
-		LinkedList tempLinkedList = new LinkedList(8);
+		//A new linked list
+		/*LinkedList tempLinkedList = new LinkedList(8);
 		tempLinkedList.addMultiple(10, 12, 14, 16, 18, 20);
         tempLinkedList.display();
         System.out.println("Deleting 8...");
         tempLinkedList.delete(8);
-        tempLinkedList.display();
+        tempLinkedList.display();*/
         LinkedList noHeadList = new LinkedList();
         noHeadList.addMultiple(7, 9, 11, 13, 15, 17);
         noHeadList.display();
-        System.out.println("Deleting 13...");
+        //-----Deletion-----
+        /*System.out.println("Deleting 13...");
         noHeadList.delete(13);
         noHeadList.display();
         System.out.println("Deleting 17...");
@@ -136,6 +191,19 @@ public class LinkedList {
         noHeadList.display();
         System.out.println("Deleting 19...");
         noHeadList.delete(19);
+        noHeadList.display();*/
+        //-----Update------
+        System.out.println("Updating 7 with 3...");
+        noHeadList.update(7, 3);
+        noHeadList.display();
+        System.out.println("Updating 13 with 21...");
+        noHeadList.update(13, 21);
+        noHeadList.display();
+        System.out.println("Updating 17 with 67...");
+        noHeadList.update(17, 67);
+        noHeadList.display();
+        System.out.println("Updating 19 with 33...");
+        noHeadList.update(19, 33);
         noHeadList.display();
 	}
 
