@@ -171,6 +171,9 @@ public class LinkedList {
 		}
 	}
 	
+	/**
+	 * Reverses the linked list
+	 */
 	public void reverse()
 	{
 		if(head == null)
@@ -179,6 +182,7 @@ public class LinkedList {
 		}
 		else 
 		{
+			//**Initialize previous and next nodes to null**//
 			Node current = head, prev = null, next = null;
 			while(current != null)
 			{
@@ -187,6 +191,8 @@ public class LinkedList {
 				prev = current;
 				current = next;
 			}
+			//**Once the list is reversed head needs to point to the other
+			//**end of the originial linked list
 			head = prev;
 		}
 	}

@@ -1,9 +1,7 @@
-/**
- * 
- */
 package psychic.lamp.linkedlist;
 
 /**
+ * CtCI -  2.2
  * Implement an algorithm to find the nth to last element of a singly linked list.
  * @author vishakha
  *
@@ -20,7 +18,8 @@ public class NthToLastElement {
 	{
 		Node head = list.getHead();
 		Node current = head, runner = head;
-		
+		//**Need to return the node in order to determine if n is
+		//**greater than the list length
 		for(int i = 0; i < n; i++)
 		{
 			if(runner == null)

@@ -22,6 +22,7 @@ public class RemoveDuplicates {
 		{
 			if(!unique.add(current.getData()))
 			{
+				//**Do not move the previous node to current if there is a duplicate**//
 				prev.setNext(current.getNext());
 			}
 			else
@@ -39,6 +40,7 @@ public class RemoveDuplicates {
 	 */
 	public static void removeDuplicatesWithoutBuffer(LinkedList list)
 	{
+		//**Needs only two pointers**//
 		Node current = list.getHead();
 		while(current != null && current.getNext() != null)
 		{
