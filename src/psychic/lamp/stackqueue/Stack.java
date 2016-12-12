@@ -1,10 +1,23 @@
 package psychic.lamp.stackqueue;
+import java.util.NoSuchElementException;
+
 import psychic.lamp.linkedlist.*;
 
+
+
+/**
+ * A stack is a LIFO sequence. Addition and removal takes place only at one end, called the top.
+ * You can query the size of the stack and
+ * ask whether it is empty, push items, pop items, and peek at the top
+ * item.
+ * Reference: http://cs.lmu.edu/~ray/notes/stacks/
+ * @author vishakha
+ *
+ */
 public class Stack {
 	
 	Node top = new Node();
-	
+	private int size = 0;
 	public Stack(Node top) {
 		super();
 		this.top = top;
@@ -18,23 +31,59 @@ public class Stack {
 	public Stack() {
 	}
 
+	/**
+     * Removes the top item from the stack and returns it.
+     */
 	public Integer pop()
 	{
 		if(top != null)
 		{
 			Integer data = top.getData();
 			top = top.getNext();
+			size--;
 			return data;
 		}
 		return null;
 	}
-	
+	/**
+     * Adds the given item to the top of the stack.
+     */
 	public void push(Integer data)
 	{
 		Node temp = new Node(data);
 		temp.setNext(top);
 		top = temp;
+		size++;
 	}
+	
+	/**
+     * Returns the top item from the stack without popping it.
+     * @exception java.util.NoSuchElementException if the queue is empty.
+     */
+    public Integer peek()
+    {
+    	if(size == 0)
+    	{
+    		throw new NoSuchElementException("Cannot peek into empty queue");
+    	}
+    	return top.getData();
+    }
+
+    /**
+     * Returns the number of items currently in the stack.
+     */
+    public int size()
+    {
+    	return size;
+    }
+
+    /**
+     * Returns whether the stack is empty or not.
+     */
+    public boolean isEmpty()
+    {
+    	return size == 0;
+    }
 	
 	public void display()
 	{

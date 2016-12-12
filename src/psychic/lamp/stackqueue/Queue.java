@@ -5,10 +5,13 @@ import java.util.NoSuchElementException;
 import psychic.lamp.linkedlist.Node;
 
 /**
-* A small queue class.  You can query the size of the queue and
-* ask whether it is empty, add and remove items, and peek at the front
-* item.
-*/
+ * A queue is a FIFO sequence. Addition takes place only at the tail, and removal takes place only at the head.
+ * A small queue class.  You can query the size of the queue and
+ * ask whether it is empty, add and remove items, and peek at the front
+ * item.
+ * Reference: http://cs.lmu.edu/~ray/notes/queues/
+ * @author vishakha
+ */
 
 public class Queue {
 	//Head will be used for removing the item at the head - dequeue
