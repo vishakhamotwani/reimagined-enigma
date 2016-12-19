@@ -16,7 +16,7 @@ import psychic.lamp.linkedlist.*;
  */
 public class Stack {
 	
-	Node top = new Node();
+	Node top = null;
 	private int size = 0;
 	public Stack(Node top) {
 		super();
@@ -51,7 +51,10 @@ public class Stack {
 	public void push(Integer data)
 	{
 		Node temp = new Node(data);
-		temp.setNext(top);
+		if(top != null) 
+		{
+			temp.setNext(top);
+		}
 		top = temp;
 		size++;
 	}
@@ -87,16 +90,17 @@ public class Stack {
 	
 	public void display()
 	{
-		if(top == null)
+		Node curr = top;
+		if(curr == null)
 		{
 			System.out.println("Stack is empty");
 		}
 		else
 		{
-			while(top != null)
+			while(curr != null)
 			{
-				System.out.print(top.getData() + " ");
-				top = top.getNext();
+				System.out.print(curr.getData() + " ");
+				curr = curr.getNext();
 			}
 		}
 	}
